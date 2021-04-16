@@ -1,0 +1,98 @@
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>View List</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <style>
+        body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    background-color: beige;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+    </style>
+    <body>
+       <div class="carousel-item active">
+
+
+        {% for i in Add %}
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="itemname" style="width: 18rem;">
+              <td> {{i.itemname}}</td>
+             <td> {{i.itemquantity}}</td>
+             <td> {{i.status}}</td>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+      </div><div class="carousel-item">
+        {% endif %}
+
+        {% endfor %}
+    </div>
+        <div class="container mt-5">
+            <!-- top -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>View Grocery List</h1>
+                </div>
+                <div class="col-lg-6 float-right">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Date Filtering-->
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="submit" class="btn btn-danger" value="filter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // top -->
+            <!-- Grocery Cards -->
+            <div class="row mt-4">
+                <!--- -->
+                <!-- Loop This -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Tomato</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">8 Pcs.</h6>
+                          <p class="text-success">BOUGHT</p>
+                        </div>
+                      </div>
+                </div>
+                <!-- // Loop -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Mutton</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">5Kgs</h6>
+                          <p class="text-danger">NOT AVAILABLE</p>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Posto</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">50gms</h6>
+                          <p class="text-info">PENDING</p>
+                        </div>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
